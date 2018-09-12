@@ -1,4 +1,4 @@
-{% set version = "1.5" %}
+{% set version = '1.5' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -10,14 +10,13 @@ package:
 source:
   fn: commonmark_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/commonmark_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/commonmark/commonmark_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/commonmark_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/commonmark/commonmark_{{ version }}.tar.gz
   sha256: 7fa81635bf0d26395fdd8dd830e16f9910a388faa949b2874aed7a505f2e9dcb
 
 build:
   merge_build_host: True  # [win]
-  number: 2
-  skip: true  # [win32]
+  number: 3
 
   rpaths:
     - lib/R/lib/
@@ -25,22 +24,28 @@ build:
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
+
   host:
     - r-base
 
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
 
 test:
   commands:
-    - $R -e "library('commonmark')"  # [not win]
+    - $R -e "library('commonmark')"           # [not win]
     - "\"%R%\" -e \"library('commonmark')\""  # [win]
 
 about:
-  home: https://github.com/jeroenooms/commonmark http://commonmark.org/help/
+  home: https://github.com/jeroen/commonmark https://commonmark.org/help/
   license: BSD_2_clause
   summary: The CommonMark specification defines a rationalized version of markdown syntax. This
     package uses the 'cmark' reference implementation for converting markdown text into
@@ -56,3 +61,4 @@ extra:
     - daler
     - jdblischak
     - cbrueffer
+    - dbast
