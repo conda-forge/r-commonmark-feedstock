@@ -23,16 +23,16 @@ requirements:
   build:
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{posix}}filesystem        # [win]
-    - {{posix}}make
-    - {{posix}}sed               # [win]
-    - {{posix}}coreutils         # [win]
-    - {{posix}}zip               # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
   host:
     - r-base
   run:
     - r-base
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
@@ -48,6 +48,8 @@ about:
     markdown parse tree in xml format. Also includes opt-in support for GFM extensions
     including tables, autolinks, and strikethrough text.
   license_family: BSD
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_2_clause'
 
 extra:
   recipe-maintainers:
