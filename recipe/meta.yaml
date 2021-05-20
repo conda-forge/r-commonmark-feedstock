@@ -21,6 +21,7 @@ build:
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ posix }}filesystem        # [win]
@@ -41,7 +42,7 @@ test:
 
 about:
   home: http://github.com/jeroen/commonmark (devel) https://github.github.com/gfm/ (spec)
-  license: BSD_2_clause
+  license: BSD-2-Clause
   summary: The CommonMark specification defines a rationalized version of markdown syntax. This
     package uses the 'cmark' reference implementation for converting markdown text into
     various formats including html, latex and groff man. In addition it exposes the
@@ -49,7 +50,8 @@ about:
     including tables, autolinks, and strikethrough text.
   license_family: BSD
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_2_clause'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_2_clause
+    - LICENSE
 
 extra:
   recipe-maintainers:
