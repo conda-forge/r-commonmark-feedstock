@@ -3,7 +3,7 @@ About r-commonmark
 
 Home: http://github.com/jeroen/commonmark (devel) https://github.github.com/gfm/ (spec)
 
-Package license: BSD_2_clause
+Package license: BSD-2-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-commonmark-feedstock/blob/master/LICENSE.txt)
 
