@@ -1,4 +1,4 @@
-{% set version = '1.7' %}
+{% set version = "1.8.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/commonmark_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/commonmark/commonmark_{{ version }}.tar.gz
-  sha256: d14a767a3ea9778d6165f44f980dd257423ca6043926e3cd8f664f7171f89108
+  sha256: 7d07e72937b1cf158e69f183722bf79dbb91b8967a9dd29f4fa145500c2be668
 
 build:
-  merge_build_host: True  # [win]
-  number: 1002
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -43,11 +43,8 @@ test:
 about:
   home: http://github.com/jeroen/commonmark (devel) https://github.github.com/gfm/ (spec)
   license: BSD-2-Clause
-  summary: The CommonMark specification defines a rationalized version of markdown syntax. This
-    package uses the 'cmark' reference implementation for converting markdown text into
-    various formats including html, latex and groff man. In addition it exposes the
-    markdown parse tree in xml format. Also includes opt-in support for GFM extensions
-    including tables, autolinks, and strikethrough text.
+  summary: The CommonMark specification defines a rationalized version of markdown syntax. This package uses the 'cmark' reference implementation for converting markdown text into various formats including html, latex and groff man. In addition it exposes the markdown parse tree in xml format. Also includes opt-in support
+    for GFM extensions including tables, autolinks, and strikethrough text.
   license_family: BSD
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_2_clause
