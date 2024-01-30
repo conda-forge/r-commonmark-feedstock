@@ -1,4 +1,4 @@
-{% set version = "1.9.0" %}
+{% set version = "1.9.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/commonmark_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/commonmark/commonmark_{{ version }}.tar.gz
-  sha256: 6dd01a5a26c8d436486abf69c2f6ad0f8dd1c811f575c31983aeb4dbd376548f
+  sha256: 9517a13f4ce4a99bb157493453b04419b222cb65a9471cd3b11e5045ac0db53b
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/

@@ -3,6 +3,7 @@ About r-commonmark-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-commonmark-feedstock/blob/main/LICENSE.txt)
 
+
 About r-commonmark
 ------------------
 
@@ -11,6 +12,7 @@ Home: http://github.com/jeroen/commonmark (devel) https://github.github.com/gfm/
 Package license: BSD-2-Clause
 
 Summary: The CommonMark specification defines a rationalized version of markdown syntax. This package uses the 'cmark' reference implementation for converting markdown text into various formats including html, latex and groff man. In addition it exposes the markdown parse tree in xml format. Also includes opt-in support for GFM extensions including tables, autolinks, and strikethrough text.
+
 About r-commonmark
 ------------------
 
@@ -195,7 +197,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
